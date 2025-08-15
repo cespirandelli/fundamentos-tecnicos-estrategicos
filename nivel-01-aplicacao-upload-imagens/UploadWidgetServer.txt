@@ -1,0 +1,73 @@
+DISCIPLINAS
+
+Fundamentos Técnicos e Estratégicos | 120h
+
+Aprenda a criar APIS RESTful, usar infraestrutura baseada em containers e conectar ao front-end web. 
+Desenvolva pensamento orientado a produtos e incorpore Inteligência Artificial em soluções.
+
+1) Upload widget Server NÓDULO 24 AULAS
+
+    Nesse módulo, vocé criará o servidor de um widget para upload de imagens com Node.js, PostgreSQL e
+    Cloudflare R2. Aprenderá rotas e funções para upload, listagem e exportação de arquivos em CSV,
+    usando cursores do Postgres e streams do Node.js. Também trabalhará com validaçöes, controle de
+    erros, testes e workflows de CI, construindo um backend eficiente e escalåvel.
+
+
+
+    1) pnpm --init
+    2) pnpm i typescript @types/node tsx -D
+    3) pnpm i @biomejs/biome -D
+    4) pnpm i fastify @fastify/cors zod fastify-type-provider-zod
+    5) pnpm tsc --init
+
+> pegar oo package.json do "tsconfig bases" referente ao React 22 e salvar tsconfig
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 22",
+  "_version": "22.0.0",
+  "compilerOptions": {
+    "lib": [
+      "es2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Iterator"
+    ],
+    "module": "esnext",
+    "target": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  }
+}
+
+e no package.json:
+
+
+{
+	"name": "upload-server",
+	"type": "module",
+	"scripts": {
+		"dev": "tsx watch src/infra/http/server.ts"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.1.4",
+		"@types/node": "^24.2.1",
+		"tsx": "^4.20.4",
+		"typescript": "^5.9.2"
+	},
+	"dependencies": {
+		"@fastify/cors": "^11.1.0",
+		"fastify": "^5.5.0",
+		"fastify-type-provider-zod": "^5.0.3",
+		"zod": "^4.0.17"
+	}
+}
+
+
